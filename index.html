@@ -279,6 +279,61 @@
       .contents ol { columns:1 }
       .guide-card { padding:17px }
     }
+
+    /* Return to Top Button */
+.back-to-top {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #3b806d;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #082219;
+  font-size: 25px;
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 1000;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+
+  transition:
+    opacity .25s ease,
+    visibility .25s ease,
+    transform .25s ease,
+    filter .15s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  filter: brightness(1.12);
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+
+@media(max-width:600px) {
+  .back-to-top {
+    right: 17px;
+    bottom: 17px;
+    width: 44px;
+    height: 44px;
+  }
+}
   </style>
 </head>
 
@@ -630,5 +685,31 @@
   </footer>
 
 </main>
+  <button
+  class="back-to-top"
+  id="backToTop"
+  type="button"
+  aria-label="Return to top"
+  title="Return to top">
+  ↑
+</button>
+  <script>
+  const backToTop = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTop.classList.add("show");
+    } else {
+      backToTop.classList.remove("show");
+    }
+  });
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
 </body>
 </html>
