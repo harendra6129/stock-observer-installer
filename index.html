@@ -1,11 +1,11 @@
-
+ 
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b1020">
-  <meta name="description" content="Download Stock Observer for Android. Learn how to navigate the app, observe NSE stocks, analyse market data and manage a virtual portfolio.">
+  <meta name="description" content="Download Stock Observer for Android and Windows. Learn how to navigate the app, observe NSE stocks, analyse market data and manage a virtual portfolio.">
   <title>Stock Observer — Download & User Manual</title>
 
   <style>
@@ -108,6 +108,13 @@
     .install:hover {
       filter:brightness(1.06);
       transform:translateY(-1px);
+    }
+
+    /* Windows Installer Button */
+    .windows-install {
+      margin-top:12px;
+      background:#76aaff;
+      color:#101c35;
     }
 
     .hint {
@@ -281,59 +288,55 @@
     }
 
     /* Return to Top Button */
-.back-to-top {
-  position: fixed;
-  right: 25px;
-  bottom: 25px;
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  border: 1px solid #3b806d;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #082219;
-  font-size: 25px;
-  font-weight: 800;
-  cursor: pointer;
-  z-index: 1000;
+    .back-to-top {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #3b806d;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #082219;
+      font-size: 25px;
+      font-weight: 800;
+      cursor: pointer;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .25s ease,
+        filter .15s ease;
+    }
 
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(10px);
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
 
-  transition:
-    opacity .25s ease,
-    visibility .25s ease,
-    transform .25s ease,
-    filter .15s ease;
-}
+    .back-to-top:hover { filter: brightness(1.12) }
 
-.back-to-top.show {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
-}
+    .back-to-top:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 4px;
+    }
 
-.back-to-top:hover {
-  filter: brightness(1.12);
-}
-
-.back-to-top:focus-visible {
-  outline: 3px solid var(--blue);
-  outline-offset: 4px;
-}
-
-@media(max-width:600px) {
-  .back-to-top {
-    right: 17px;
-    bottom: 17px;
-    width: 44px;
-    height: 44px;
-  }
-}
+    @media(max-width:600px) {
+      .back-to-top {
+        right: 17px;
+        bottom: 17px;
+        width: 44px;
+        height: 44px;
+      }
+    }
   </style>
 </head>
 
@@ -350,21 +353,32 @@
     </p>
 
     <div class="details">
-      <div class="detail"><small>Platform</small><strong>Android</strong></div>
+      <div class="detail"><small>Platform</small><strong>Android &amp; Windows</strong></div>
       <div class="detail"><small>Version</small><strong>1.0.0</strong></div>
       <div class="detail"><small>Price</small><strong>Free</strong></div>
-      <div class="detail"><small>File type</small><strong>Android APK</strong></div>
+      <div class="detail"><small>File types</small><strong>APK &amp; EXE</strong></div>
     </div>
 
+    <!-- Android Download -->
     <a class="install"
        href="https://github.com/harendra6129/stock-observer-installer/releases/latest/download/app-debug.apk"
        id="download">
-      <span aria-hidden="true">⬇</span> Download &amp; Install
+      <span aria-hidden="true">⬇</span> Download &amp; Install for Android
+    </a>
+
+    <!-- Windows Download -->
+    <a class="install windows-install"
+       href="https://github.com/harendra6129/stock-observer-installer/releases/download/v1.0.0/Stock-Observer-Setup-1.0.0.exe"
+       id="windows-download">
+      <span aria-hidden="true">▣</span> Download Windows Installer
     </a>
 
     <p class="hint">
-      Download the APK to your Android device. Open the downloaded file
+      Android: Download the APK to your device, open the downloaded file
       and follow Android's installation instructions.
+      <br>
+      Windows: Download the installer, open the EXE file and follow
+      the installation wizard.
     </p>
 
     <div class="notice">
@@ -372,6 +386,10 @@
       Android may ask you to allow installation from your browser.
       This is a normal security permission for installing an APK
       downloaded outside the Play Store.
+      <br><br>
+      Windows may display a Microsoft Defender SmartScreen warning
+      because the application is not digitally code-signed. Only
+      download the installer from this official release page.
     </div>
   </header>
 
@@ -410,16 +428,18 @@
         <span class="tag">01 · Getting Started</span>
         <h3>Installing and Opening the Application</h3>
         <p>
-          Stock Observer is distributed as an Android APK. Users can
-          download and install it directly on a compatible Android device.
+          Stock Observer is available for Android and Windows.
+          Users can download the appropriate installer for their device.
         </p>
         <ol>
-          <li>Tap the Download &amp; Install button at the top of this page.</li>
-          <li>Wait for the APK file to finish downloading.</li>
-          <li>Open the downloaded file from your Downloads folder.</li>
+          <li>Choose the Android or Windows download button at the top of this page.</li>
+          <li>Wait for the installation file to finish downloading.</li>
+          <li>On Android, open the APK file from your Downloads folder.</li>
           <li>If Android requests permission, allow your browser to install unknown apps.</li>
           <li>Tap Install and wait for the installation to complete.</li>
-          <li>Open Stock Observer from your device's application list.</li>
+          <li>On Windows, open the downloaded EXE installer.</li>
+          <li>Follow the installation wizard and choose the installation location if prompted.</li>
+          <li>Launch Stock Observer from the Desktop shortcut or Start Menu.</li>
         </ol>
         <div class="tip">
           Keep the application updated using a trusted release from the
@@ -654,7 +674,7 @@
         </p>
         <div class="tip">
           For the latest application download, return to the
-          Stock Observer installer page and use the download link
+          Stock Observer installer page and use the download links
           provided at the top.
         </div>
         <p>
@@ -670,22 +690,29 @@
   <section class="final-download">
     <h2>Ready to get started?</h2>
     <p>
-      Download Stock Observer and explore its stock observation,
-      analysis and virtual portfolio features.
+      Download Stock Observer for your device and explore its stock
+      observation, analysis and virtual portfolio features.
     </p>
+
     <a class="install"
        href="https://github.com/harendra6129/stock-observer-installer/releases/latest/download/app-debug.apk">
-      <span aria-hidden="true">⬇</span> Download Stock Observer
+      <span aria-hidden="true">⬇</span> Download for Android
+    </a>
+
+    <a class="install windows-install"
+       href="https://github.com/harendra6129/stock-observer-installer/releases/download/v1.0.0/Stock-Observer-Setup-1.0.0.exe">
+      <span aria-hidden="true">▣</span> Download for Windows
     </a>
   </section>
 
   <footer>
-    Stock Observer · Independent Android Application<br>
+    Stock Observer · Android &amp; Windows Application<br>
     User Manual &amp; Download Page · Version 1.0.0
   </footer>
 
 </main>
-  <button
+
+<button
   class="back-to-top"
   id="backToTop"
   type="button"
@@ -693,7 +720,8 @@
   title="Return to top">
   ↑
 </button>
-  <script>
+
+<script>
   const backToTop = document.getElementById("backToTop");
 
   window.addEventListener("scroll", () => {
